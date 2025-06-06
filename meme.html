@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title> Meme Madness</title>
+<link rel="icon" href="./assets/MemeMadness.png"  type="image/png">
+<link href="./output.css" rel="stylesheet">
+</head>
+
+
+
+<body class="bg-gray-900 text-white min-h-screen flex flex-col">
+
+
+  <nav class="w-full bg-gray-800 px-6 py-4 flex flex-col sm:flex-row sm:justify-between gap-4 sm:items-end shadow">
+    <h1 class="text-2xl font-bold flex justify-start items-end text-yellow-600">
+    <img src="./assets/MemeMadness.png" class="w-[40px]" />
+      Meme Madness</h1>
+    <div class="flex items-end gap-2 ">
+      <a href="canvas.html" class="text-sm sm:text-base bg-yellow-700  hover:bg-yellow-600 hover:text-black font-bold text-white px-4 py-2 rounded">Canvas</a>
+      <a href="savedMeme.html" class="text-sm sm:text-base bg-yellow-700  hover:bg-yellow-600 hover:text-black font-bold text-white px-4 py-2 rounded">Saved Meme</a>
+    </div>
+    
+  </nav>
+
+
+  <main class="p-6 w-full flex flex-col items-center">
+
+    <div class="mb-4 w-full max-w-xl flex gap-2">
+      <input id="customTagInput" type="text" placeholder="Enter custom tag (e.g., cats)" class="w-[88%] px-4 py-2 rounded-xl bg-gray-800 border border-gray-700 focus:outline-none" />
+      <button onclick="handleUnifiedSearch()" class="w-[8%] border-2 drop-shadow-md hover:bg-yellow-600 border-yellow-700 rounded-full transition ">&#128269</button>
+    </div>
+
+    <div class="mb-4 flex flex-wrap gap-2 justify-center items-center w-full max-w-xl">
+      <button onclick="toggleTag(this, 'funny')" class="tag-btn">#funny</button>
+      <button onclick="toggleTag(this, 'bollywood')" class="tag-btn">#bollywood</button>
+      <button onclick="toggleTag(this, 'dank')" class="tag-btn">#dank</button>
+      <button onclick="toggleTag(this, 'programming')" class="tag-btn">#programming</button>
+      <button onclick="toggleTag(this, 'cricket')" class="tag-btn">#cricket</button>
+      <button onclick="toggleTag(this, 'office')" class="tag-btn">#office</button>
+      
+    </div>
+
+    <hr class=" border border-yellow-800 drop-shadow-lg drop-shadow-slate-800 w-full">
+
+    <div class="my-6 flex items-end justify-between gap-4 w-full max-w-xl">
+      
+      <h2 class="text-2xl font-extrabold mb-4 text-yellow-600 underline-offset-8 underline">Memes</h2>
+      <button onclick="fetchRandomMemes()" class="px-4 py-2 bg-yellow-700  hover:bg-yellow-600 rounded-lg  hover:text-black hover:font-extrabold transition">Generate Random</button>
+    </div>
+
+    <div id="loader" class="hidden text-center text-yellow-400 text-lg">Loading memes...</div>
+    <div id="memeContainer" class="mt-2 max-w-4xl w-full flex flex-col gap-6"></div>
+    
+    
+<div id="toast" class="toast">
+  Save limit reached (100 memes). Remove some from the Saved Memes page.
+</div>
+
+      <button id="nextButton" onclick="showNextPage()" class="w-full sm:w-[25%] mt-4 mb-8 px-3 py-1 text-sm bg-yellow-600 rounded hover:bg-yellow-700 transition hidden">Next Page</button>
+    </div>
+
+  </main>
+
+  <!-- <button onclick="showToast('Meme saved successfully!')" class="px-4 py-2 bg-blue-600 text-white rounded">Show Toast</button> -->
+
+  
+   
+
+  
+
+  <style>
+
+    button{
+      cursor: pointer;
+    }
+
+    .tag-btn {
+      padding: 0.5rem 1rem;
+      border-radius: 0.375rem;
+      background-color: #4b5563; /* Gray-600 */
+      color: white;
+      transition: background-color 0.2s;
+    }
+    .tag-btn:hover {
+      background-color: #374151; /* Gray-700 */
+    }
+    .tag-btn.selected {
+      background-color: #facc15; /* Yellow-400 */
+      color: black;
+    }
+
+  .toast {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #0a6d62; /* red-700 */
+    color: white;
+    padding: 12px 16px;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+    z-index: 9999;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+  }
+
+  .toast.show {
+    opacity: 1;
+    pointer-events: auto;
+  }
+</style>
+
+
+  
+
+<script src="./meme.js"></script>
+  
+</body>
+</html>

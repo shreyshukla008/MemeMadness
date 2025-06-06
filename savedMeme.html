@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Saved Memes - Meme Madness</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="icon" href="./assets/MemeMadness.png" type="image/png">
+</head>
+<body class="bg-gray-900 text-white min-h-screen flex flex-col">
+
+  
+  <nav class="w-full bg-gray-800 px-6 py-4 flex justify-between items-center shadow">
+    <h1 class="text-xl font-bold flex justify-start items-end text-yellow-600">
+      <img src="./assets/MemeMadness.png" class="w-[40px]" />
+      Meme Madness
+    </h1>
+    <a href="meme.html" class="text-sm bg-yellow-700  hover:bg-yellow-600 hover:text-black font-bold text-white px-4 py-2 rounded">Back to Home</a>
+  </nav>
+
+  <main class="p-6 flex flex-col items-center w-full">
+    <h2 class="text-2xl font-bold mb-6 text-yellow-600 ">Your Saved Memes</h2>
+    <div id="savedContainer" class="flex flex-col gap-6 w-full max-w-[600px]"></div>
+    <p id="emptyMessage" class="text-gray-400 mt-4 hidden">No memes saved yet.</p>
+  </main>
+
+  <script src="savedMeme.js"></script>
+
+</body>
+</html>
